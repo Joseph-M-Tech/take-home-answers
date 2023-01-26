@@ -1,0 +1,15 @@
+_________To implement this feature, the following steps could be taken____
+
+1. Add a new column to the Agents table in the database to store the custom id for each Agent. This column could be called "agent_custom_id" and should be of a string data type.
+
+2. Update the function getShiftsByFacility to include the agent_custom_id of the Agent in the metadata it returns for each Shift. This can be done by joining the Agents table with the Shifts table on the Agent's id and selecting the agent_custom_id column along with the other data.
+
+3. Update the generateReport function to use the agent_custom_id instead of the internal id when displaying the Agent's information on the report. This can be done by replacing references to the internal id with the agent_custom_id in the code that generates the report.
+
+4. Add a way for Facilities to set the agent custom id for each Agent they work with. This could be done by adding a new page in the Facility's dashboard that allows them to view all of the Agents they work with and set a custom id for each one.
+
+5. Once the agent_custom_id is set, the Facility can generate report for each Agent with their 'agent_custom_id'.
+
+6. Test the feature thoroughly to ensure that it works as expected and that the reports generated with the custom ids are accurate and compliant.
+
+7. It is also important to handle cases where agent_custom_id is not set and fallback to the internal id.
